@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="furnivision-webapp:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/furnivision_webapp_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="furnivision-webapp" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.mysql:mysql-connector-j:9.2.0" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="furnivision-webapp/web/Web" />
+    </root>
+  </artifact>
+</component>
