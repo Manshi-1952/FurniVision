@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Forum&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap');
+
+*{
+    margin :0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: "Forum", sans-serif;
+    letter-spacing: 1px;
+    line-height: 1.4;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffffff; /* Dark background */
+    color: #171616; /* White text */
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 15px;
+}
+
+.container {
+    background-color: #ffffff; /* Darker background for container */
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    width: 400px;  /* Reduce the width */
+    max-width: 500px;  /* Limit the maximum width */
+    padding: 25px;  /* Adjust padding to decrease the overall height */
+    text-align: center;
+    margin: 5px auto;  /* Center the container with margin */
+}
+h2{
+    font-size:24px;
+}
+form {
+    margin-top: 5px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+    /*font-weight: bold;*/
+}
+
+input[type="text"], input[type="password"], input[type="email"], input[type="tel"] {
+    width: 100%;
+    padding: 7px;
+    margin-bottom: 15px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #ffffff; /* Darker background for input fields */
+    color: #171616; /* White text for input fields */
+    font-size: 16px; /* Adjust the font size to match your design */
+    line-height: 1.5; /* Ensure vertical alignment */
+}
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="tel"]:focus   {
+    outline: none; /* Remove default focus outline */
+    border-color: rgba(38, 173, 38, 0.92); /* Highlight border on focus */
+}
+
+input[type="checkbox"] {
+    margin-right: 15px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.checkbox-container label {
+    font-size: 0.9em; /* Reduce the size of the "Remember Me" text */
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #26b226;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: rgba(38, 173, 38, 0.92);
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.links {
+    margin-top: 10px;
+}
+
+.links a {
+    color: #893BAD;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #aaa;
+}

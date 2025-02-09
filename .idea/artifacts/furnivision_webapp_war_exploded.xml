@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="furnivision-webapp:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/furnivision_webapp_war_exploded</output-path>
+    <output-path>$PROJECT_DIR$/target/FurniVision</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
