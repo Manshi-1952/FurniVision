@@ -1,4 +1,4 @@
-# 🏡 FurniVision - Modern Furniture E-commerce Website  
+![admin page 2](https://github.com/user-attachments/assets/b25bfe4e-1df9-4a51-a87f-aad9929edb44)# 🏡 FurniVision - Modern Furniture E-commerce Website  
 
 FurniVision is a sleek and user-friendly furniture e-commerce platform built using **Java Servlets, JDBC, MySQL, HTML, CSS, and JavaScript**. It offers a smooth shopping experience with features like product management, user management, and a functional shopping cart.  
 
@@ -37,3 +37,22 @@ FurniVision is a sleek and user-friendly furniture e-commerce platform built usi
 
 6. Start your Tomcat server
 Access the website via http://localhost:8080/FurniVision
+
+
+## 📷 Screenshots
+
+### 🏠 Homepage
+![Homepage](screenshots/index.png)
+![Sofa](screenshots/sofa.png)
+![Sofa 2](screenshots/sofa2.png)
+![Beds](screenshots/beds.png)
+![Login](screenshots/index.png)
+
+### 🛒 Cart Page
+![Cart](screenshots/cart.png)
+
+### 🛠 Admin Panel
+![Admin Panel](screenshots/admin-page1.png)
+![Admin Panel](screenshots/adminpage 2.png)
+![Admin Panel](screenshots/admin-page1.png)
+
