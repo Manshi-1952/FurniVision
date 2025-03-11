@@ -1,12 +1,16 @@
 /* Reset default styles */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&family=Lavishly+Yours&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: "Open Sans", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:
+            "wdth" 100;
 }
+
 body {
     overflow-x: hidden;
 }
@@ -131,10 +135,8 @@ nav {
 }
 
 .dropbtn {
-    background: none;
     border: none;
     font-size: 16px;
-    color: #333;
     cursor: pointer;
     padding: 8px 12px;
     border-radius: 5px;
@@ -153,13 +155,9 @@ nav {
 }
 
 .dropdown-content a {
-    color: black;
     padding: 10px;
     text-decoration: none;
     display: block;
-}
-.dropdown-content a:hover {
-    background-color: #f4f4f4;
 }
 
 /* Green Sign In Button */
@@ -177,6 +175,7 @@ nav {
 
 .signin-btn:hover {
     background-color: #218838;
+    color: white;
 }
 
 
@@ -237,7 +236,7 @@ nav {
     left: 0;
     bottom: 0;
     background-image: linear-gradient(
-            to top, #000 40%, transparent
+            to top, rgba(14, 14, 14, 0.8) 40%, transparent
     );
 }
 .slider .list .item .content{
@@ -292,7 +291,6 @@ nav {
 .arrows button{
     background-color: #eee5;
     border: none;
-    font-family: monospace;
     width: 40px;
     height: 40px;
     border-radius: 5px;

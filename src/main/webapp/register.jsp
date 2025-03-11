@@ -2,58 +2,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./CSS/register.css">
-    <title>FurniVision - Register</title>
-    <style>
-        .error-message {
-            color: red;
-            font-size: 0.9em;
-            margin-top: 5px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./CSS/register.css">
+  <title>FurniVision - Register</title>
+  <style>
+      .error-message {
+          color: red;
+          font-size: 0.9em;
+          margin-top: 5px;
+      }
+  </style>
 </head>
 <body>
 
 <div class="header">
-    <h1>Let's create your account</h1>
-    <p>Already a member? <a href="login.jsp" style="color: #893BAD">Sign in</a></p>
+  <h1>Let's create your account</h1>
+  <p>Already a member? <a href="login.jsp" style="color: #893BAD">Sign in</a></p>
 </div>
 
 <div class="container">
-    <h2>Register</h2>
-    <form id="registrationForm" action="register" method="post" onsubmit="return validateForm()">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <div id="usernameError" class="error-message"></div>
+  <h2>Register</h2>
+  <form id="registrationForm" action="register" method="post" onsubmit="return validateForm()">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <div id="usernameError" class="error-message"></div>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <div id="passwordError" class="error-message"></div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <div id="emailError" class="error-message"></div>
 
-        <label for="confirm_password">Confirm Password:</label>
-        <input type="password" id="confirm_password" name="confirm_password" required>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <div id="passwordError" class="error-message"></div>
 
-        <div class="checkbox-container">
-            <input type="checkbox" id="remember" name="remember">
-            <label for="remember">Remember Me</label>
-        </div>
+    <label for="confirm_password">Confirm Password:</label>
+    <input type="password" id="confirm_password" name="confirm_password" required>
 
-        <div class="checkbox-container">
-            <input type="checkbox" id="terms" name="terms" required>
-            <label for="terms">I agree to the <a href="#" style="color: #893BAD">Terms & Conditions</a> and <a href="#" style="color: #893BAD">Privacy Policy</a></label>
-        </div>
+    <label for="role">User Role:</label>
+    <select name="role" id="role">
+      <option value="Customer">Customer</option>
+      <option value="Admin">Admin</option>
+    </select>
 
-        <button type="submit">Register</button>
+    <div class="checkbox-container">
+      <input type="checkbox" id="remember" name="remember">
+      <label for="remember">Remember Me</label>
+    </div>
 
-        <div id="formError" class="error-message">
-            <% if (request.getAttribute("errorMessage") != null) { %>
-            <%= request.getAttribute("errorMessage") %>
-            <% } %>
-        </div>
-    </form>
+    <div class="checkbox-container">
+      <input type="checkbox" id="terms" name="terms" required>
+      <label for="terms">I agree to the <a href="#" style="color: #893BAD">Terms & Conditions</a> and <a href="#" style="color: #893BAD">Privacy Policy</a></label>
+    </div>
+
+    <button type="submit">Register</button>
+
+    <div id="formError" class="error-message">
+      <% if (request.getAttribute("errorMessage") != null) { %>
+      <%= request.getAttribute("errorMessage") %>
+      <% } %>
+    </div>
+  </form>
 </div>
 
 <script>

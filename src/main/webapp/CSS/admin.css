@@ -70,7 +70,6 @@
 .product-list {
     width: 80%;
     margin: 40px auto;
-    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     padding: 20px;
     border-radius: 15px;
@@ -79,7 +78,8 @@
 
 table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse:collapse ;
+    background: rgba(60, 123, 244, 0.1);
     margin-top: 20px;
 }
 
@@ -91,7 +91,7 @@ th, td {
 
 th {
     font-size: 18px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgb(41, 109, 255);
     color: white;
 }
 
@@ -112,6 +112,24 @@ td img {
 .delete-btn:hover {
     background: #d93c3c;
     transform: scale(1.05);
+}
+
+.pagination{
+    margin:10px;
+    padding-top: 10px;
+}
+.prevNext{
+    text-decoration: none;
+    color:white;
+    background-color: #26b226;
+    padding:8px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.prevNext:hover{
+    background-color: #26ad26; !important;
+    transform: scale(1.05); !important;
 }
 
 /* Responsive Design */

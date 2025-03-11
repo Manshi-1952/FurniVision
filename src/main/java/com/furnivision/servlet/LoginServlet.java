@@ -104,20 +104,22 @@ public class LoginServlet extends HttpServlet {
 
       try (Connection connection = DriverManager.getConnection(url, user, pwd)) {
         // Fetch user details
-        String sql = "SELECT id, password, is_admin FROM Users WHERE BINARY username = ?";
+        String sql = "SELECT id, password, is_admin, role FROM Users WHERE BINARY username = ?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
           preparedStatement.setString(1, username);
           ResultSet resultSet = preparedStatement.executeQuery();
 
           if (resultSet.next()) {
             String storedPassword = resultSet.getString("password");
-            boolean isAdmin = resultSet.getBoolean("is_admin");
+            boolean isAdmin = resultSet.getInt("is_admin") == 1; // Use getInt() for boolean values
+            String role = resultSet.getString("role");
 
             if (storedPassword.equals(hashedPassword)) { // Compare hashed passwords
               HttpSession session = request.getSession();
               session.setAttribute("username", username);
               session.setAttribute("user_id", resultSet.getInt("id"));
-              session.setAttribute("is_admin", isAdmin);
+              session.setAttribute("isAdmin", isAdmin); // Ensure correct session attribute name
+              session.setAttribute("role", role);
 
               // Set session timeout based on "Remember Me"
               if ("on".equals(remember)) {
@@ -145,6 +147,7 @@ public class LoginServlet extends HttpServlet {
       response.sendRedirect("login.jsp?error=An error occurred. Please try again.");
     }
   }
+
 
   // Secure password hashing function (SHA-256)
   private String hashPassword(String password) {

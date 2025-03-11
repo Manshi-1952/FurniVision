@@ -102,7 +102,7 @@ window.addEventListener("scroll", function () {
 let slideIndex = 0;
 
 function showSlide(index) {
-    const slides = document.querySelectorAll('.portfolio-slide');
+    const slides = document.querySelectorAll('.slider .list .item');
     if (index >= slides.length) {
         slideIndex = 0;
     } else if (index < 0) {
@@ -120,5 +120,16 @@ function moveSlide(step) {
 
 // Initialize the slider
 document.addEventListener('DOMContentLoaded', () => {
-    showSlide(slideIndex);
+    setTimeout(() => {
+        const slides = document.querySelectorAll('.slider .list .item');
+
+        if (slides.length === 0) {
+            console.error("No elements found with class .slider .list .item");
+            return;
+        }
+
+        showSlide(slideIndex);
+    }, 100);
 });
+
+

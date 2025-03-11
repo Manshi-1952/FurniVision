@@ -1,31 +1,37 @@
+
 $(document).ready(function() {
     $(".add-cart-btn").on("click", function() {
         var form = $(this).closest("form");
         var productId = form.find("input[name='product_id']").val();
         var userId = form.find("input[name='user_id']").val();
         var quantity = form.find("input[name='quantity']").val();
-        var price = form.find("input[name='price']").val();
 
-        // AJAX request to add the item to the cart
         $.ajax({
-            url: "cart", // The servlet URL
+            url: "cart",
             type: "POST",
+            dataType: "json",
             data: {
                 product_id: productId,
                 user_id: userId,
-                quantity: quantity,
-                price: price
+                quantity: quantity
             },
             success: function(response) {
-                // Update button text after successful addition to cart
-                if (response === "success") {
-                    form.find(".add-cart-btn").text("Added to Cart").prop("disabled", true);
+                console.log("Response:", response);
+                var btn = form.find(".add-cart-btn");
+
+                if (response.success) {
+                    if (response.isInCart) {
+                        btn.text("Already in Cart").prop("disabled", true);
+                    } else {
+                        btn.text("Added to Cart").prop("disabled", true);
+                    }
                 } else {
-                    alert("There was an error adding the product to the cart.");
+                    alert("Error: " + response.message);
                 }
             },
-            error: function() {
-                alert("An error occurred while adding to the cart.");
+            error: function(xhr) {
+                console.error("AJAX Error:", xhr.responseText);
+                alert("An error occurred: " + xhr.responseText);
             }
         });
     });
