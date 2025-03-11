@@ -37,3 +37,28 @@ FurniVision is a sleek and user-friendly furniture e-commerce platform built usi
 
 6. Start your Tomcat server
 Access the website via http://localhost:8080/FurniVision
+
+
+## 📷 Screenshots
+
+### 🏠 Homepage
+![Homepage](screenshots/index.png)
+![Homepage](screenshots/index-2.png)
+![Sofa](screenshots/sofa.png)
+![Sofa 2](screenshots/sofa 2.png)
+![Beds](screenshots/beds.png)
+![Beds](screenshots/beds 2.png)
+![Login](screenshots/login.png)
+
+### 🛒 Cart Page
+![Cart](screenshots/cart.png)
+
+### 🛠 Admin Panel
+![Admin Panel](screenshots/admin-page1.png)
+![Admin Panel](screenshots/admin page 2.png)
+![Admin Panel](screenshots/admin page 2.png)
+![Admin Panel](screenshots/admin page 3.png)
+![Admin Panel-Manage users](screenshots/manage users.png)
+
+
+
