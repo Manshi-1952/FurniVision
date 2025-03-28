@@ -239,9 +239,9 @@ nav {
   width: 100%;
   margin-top: 10px;
   padding: 8px;
-  background-color: #dd9527;
+  background-color: black;
   color: white;
-  border: 3px #dd9527;
+  border: 3px black;
   border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
@@ -250,9 +250,8 @@ nav {
 
 .add-cart-btn:hover {
   background-color:  #dfd5c2 ;
-  color: #dd9527;
-  border: 3px  solid #dd9527;
-
+  color: black;
+  border: 3px  solid black;
 }
 
 .auth-warning {
@@ -266,3 +265,47 @@ nav {
   color: blue;
   text-decoration: underline;
 }
+.container {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.chair-img {
+  width: 120%;
+  display: block;
+  margin: 0 auto;
+  transform: rotate(10deg) translateX(-10px) !important; /* Move left */
+}
+
+.top-text, .bottom-text {
+  position: absolute;
+  font-size: 8rem;
+  font-weight: bold;
+  color: black;
+}
+
+.top-text {
+  top: 10%;
+  left: -100%;
+}
+
+.bottom-text {
+  bottom: 3%;
+  right: -100%;
+}
+
+/*.chair-img {*/
+/*  animation: swingUpDown 3s ease-in-out infinite alternate;*/
+/*}*/
+
+/*@keyframes swingUpDown {*/
+/*  0% {*/
+/*    transform: translateY(-10px);*/
+/*  }*/
+/*  100% {*/
+/*    transform: translateY(10px);*/
+/*  }*/
+/*}*/
+
+

@@ -1,4 +1,5 @@
 
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.sql.*, jakarta.servlet.http.*, jakarta.servlet.*" %>
 <%@ page import="com.furnivision.util.DatabaseConnection" %>
@@ -18,9 +19,10 @@
 
 <html>
 <head>
-  <title>Furniture Store - Beds</title>
-  <link rel="stylesheet" href="./CSS/beds.css">
+  <title>Furniture Store - Chairs</title>
+  <link rel="stylesheet" href="./CSS/chairs.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
 </head>
 <body>
@@ -83,10 +85,16 @@
 </header>
 
 <main>
-  <section class="beds-section">
-    <img src="./Assets/upscalemedia-transformed.png" style="width: 100%;height: 90%;">
+  <section class="beds-section" >
+    <div class="container">
+      <h1 class="top-text" STYLE="float: left">TIMELESS</h1>
+      <img src="./Assets/chair2.png" class="chair-img">
+      <h1 class="bottom-text" style="float: right">CHAIRS</h1>
+    </div>
+
+    <hr style="border: 2px solid black; width: 95%; margin: auto">
     <h1 style="font-size: 2rem;font-weight: bolder;text-align: center;margin: 20px">PRODUCTS</h1>
-    <hr style="border: 1px solid #dd9527; width: 90%; margin: auto">
+    <hr style="border: 2px solid black; width: 95%; margin: auto">
 
   </section>
 
@@ -96,7 +104,7 @@
         connection = DatabaseConnection.getConnection();
         String sql = "SELECT * FROM products WHERE category = ?";
         preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setString(1, "Beds");
+        preparedStatement.setString(1, "Chairs");
         resultSet = preparedStatement.executeQuery();
 
         while (resultSet.next()) {
@@ -156,16 +164,15 @@
 
 </main>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  // Initialize AOS
+  AOS.init({
+    easing: 'ease-in-out', // Optional: Smooth easing
+  })
+</script>
 <script src="./Javascript/app-2.js"></script>
 <script src="./Javascript/app.js"></script>
 
-<script>
-    document.querySelectorAll('img[src*="uploads/1742076605158_bed5.png"]').forEach(img => {
-        img.style.display = "block";
-        img.style.visibility = "visible";
-    });
-
-</script>
 </body>
 </html>

@@ -75,6 +75,7 @@
 
 package com.furnivision.servlet;
 
+import com.furnivision.util.DatabaseConnection;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
@@ -87,9 +88,9 @@ import java.sql.*;
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 
-  private final String url = "jdbc:mysql://localhost:3306/furnivision?useSSL=false&serverTimezone=UTC";
-  private final String user = "root";
-  private final String pwd = "0409";
+//  private final String url = "jdbc:mysql://localhost:3306/furnivision?useSSL=false&serverTimezone=UTC";
+//  private final String user = "root";
+//  private final String pwd = "0409";
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -102,7 +103,7 @@ public class LoginServlet extends HttpServlet {
     try {
       Class.forName("com.mysql.cj.jdbc.Driver");
 
-      try (Connection connection = DriverManager.getConnection(url, user, pwd)) {
+      try (Connection connection = DatabaseConnection.getConnection()) {
         // Fetch user details
         String sql = "SELECT id, password, is_admin, role FROM Users WHERE BINARY username = ?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -145,6 +146,7 @@ public class LoginServlet extends HttpServlet {
     } catch (Exception e) {
       e.printStackTrace();
       response.sendRedirect("login.jsp?error=An error occurred. Please try again.");
+      request.getRequestDispatcher("login.jsp").forward(request, response);
     }
   }
 
