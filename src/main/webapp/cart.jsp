@@ -54,7 +54,7 @@
                    value="<%= resultSet.getInt("quantity") %>"
                    min="1">
         </td>
-        <td class="total-price">$<%= String.format("%.2f", totalPrice) %></td>
+        <td class="total-price">₹<%= String.format("%.2f", totalPrice) %></td>
         <td>
             <form action="RemoveFromCartServlet" method="post" onsubmit="return confirm('Are you sure you want to remove this item?')">
                 <input type="hidden" name="id" value="<%= resultSet.getInt("id") %>">
@@ -64,14 +64,22 @@
         </td>
     </tr>
     <%
-                }   
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     %>
 </table>
-<h3>Total Cart Price: $<span id="total-cart-price"><%= String.format("%.2f", totalCartPrice) %></span></h3>
+<h3>Total Cart Price: ₹<span id="total-cart-price"><%= String.format("%.2f", totalCartPrice) %></span></h3>
+
+<%
+    boolean isCartEmpty = (totalCartPrice == 0);
+%>
+
+<form id="payment-form">
+    <button type="button" class="payment-btn" id="pay-button" <% if (isCartEmpty) { %> disabled <% } %>>Proceed to Payment</button>
+</form>
 
 <br>
 <a href="index.jsp">Continue Shopping</a>
@@ -90,7 +98,7 @@
 
             let totalPriceElement = $(this).closest("tr").find(".total-price");
             let newTotal = (price * quantity).toFixed(2);
-            totalPriceElement.text("$" + newTotal);
+            totalPriceElement.text("₹" + newTotal);
 
             updateCart(cartId, quantity);
         });
@@ -99,7 +107,7 @@
             $.ajax({
                 url: "UpdateCartServlet",
                 type: "POST",
-                data: { id: cartId, quantity: quantity },
+                data: {id: cartId, quantity: quantity},
                 success: function (response) {
                     if (response.success) {
                         $("#total-cart-price").text(response.totalCartPrice.toFixed(2));
@@ -113,6 +121,35 @@
             });
         }
     });
+
+    document.getElementById("pay-button").addEventListener("click", function () {
+        fetch("http://localhost:8080/CashfreePaymentServlet", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: new URLSearchParams({
+                amount: "500",
+                currency: "INR"
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Payment Response:", data);
+                if (data.payment_session_id) {
+                    cashfree.checkout({
+                        paymentSessionId: data.payment_session_id,
+                        returnUrl: "https://sandbox.cashfree.com/pg/success",
+                    });
+                } else {
+                    alert("Payment initiation failed: " + data.error);
+                }
+            })
+            .catch(error => console.error("Payment initiation error", error));
+    });
+
 </script>
+<script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
+
 </body>
 </html>

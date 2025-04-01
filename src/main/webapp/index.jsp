@@ -16,6 +16,7 @@
   <link rel="icon" type="image/png" href="./Assets/s1.jpg">
   <!-- AOS Library -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <title>FurniVision - Home</title>
 
@@ -244,6 +245,129 @@
     </div>
   </section>
 
+  <section class=" portfolio-container main1" id="portfolio-main">
+    <h1 style="background-color: #212121;font-size: 5rem;font-weight: bolder;letter-spacing: 3px;color: #eeeeee;padding: 30px">OUR WORK</h1>
+    <div class="grid-container">
+      <!-- Left Image Grid -->
+      <div class="grid-item nested-grid">
+        <div class="nested-item"><img src="./Assets/exp1.jpeg" alt="Work 1"></div>
+        <div class="nested-item"><img src="./Assets/exp2.jpeg" alt="Work 2"></div>
+        <div class="nested-item"><img src="./Assets/exp3.jpeg" alt="Work 3"></div>
+        <div class="nested-item"><img src="./Assets/exp4.jpeg" alt="Work 3"></div>
+        <div class="nested-item"><img src="./Assets/exp6.jpeg" alt="Work 3"></div>
+        <div class="nested-item"><img src="./Assets/exp7.jpeg" alt="Work 3"></div>
+
+      </div>
+
+      <!-- Middle Content Grid (Wider) -->
+      <div class="grid-item middle-grid">
+        <h2>Our Past Projects</h2>
+        <p>We have successfully designed and built custom furniture for modern homes, apartments, and offices. Our team ensures top-notch quality with exquisite craftsmanship.</p>
+        <a href="portfolio.html" class="btn-explore">Explore Our Work</a>
+      </div>
+
+    </div>
+  </section>
+
+  <hr style="background-color: #212121;padding: 3px;margin-bottom: 30px">
+
+  <section class="contact-section" style="background-color: #212121;color: #eeeeee">
+
+    <div class="contact-container">
+
+      <!-- Left Side: Contact Details -->
+      <div class="contact-info">
+        <h2>Contact Us</h2>
+        <p>We’d love to hear from you! Reach out with any questions or inquiries.</p>
+
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <p>123 Street, City, Country</p>
+        </div>
+
+        <div class="info-item">
+          <i class="fas fa-phone"></i>
+          <p>+1 234 567 890</p>
+        </div>
+
+        <div class="info-item">
+          <i class="fas fa-envelope"></i>
+          <p>info@yourwebsite.com</p>
+        </div>
+
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <!-- Right Side: Contact Form -->
+      <div class="contact-form">
+        <h2>Send Us a Message</h2>
+        <form>
+          <div class="input-group">
+            <input type="text" placeholder="Your Name" required>
+          </div>
+          <div class="input-group">
+            <input type="email" placeholder="Your Email" required>
+          </div>
+          <div class="input-group">
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Send Message</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- Column 1: Company Info -->
+      <div class="footer-column">
+        <h2>FurniVision</h2>
+        <p>Crafting modern & elegant furniture tailored to your needs. Quality, design, and durability in every piece.</p>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+          <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div class="footer-column">
+        <h2>Quick Links</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Contact & Map -->
+      <div class="footer-column">
+        <h2>Contact Us</h2>
+        <p><i class="fas fa-map-marker-alt"></i> Sevasi, Vadodara</p>
+        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+        <p><i class="fas fa-envelope"></i> support@furnivision.com</p>
+
+        <!-- Embedded Google Map -->
+        <div class="map-container">
+          <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.5175440187026!2d73.12073641500397!3d22.30866498531654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc90205f1486b%3A0x29c3651db110c9c!2sSevasi%2C%20Vadodara%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1698947617732"
+              width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 FurniVision. All Rights Reserved.</p>
+    </div>
+  </footer>
+
 </div>
 <script src="./Javascript/app.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
@@ -267,6 +391,8 @@
     }
 
 </script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
 </body>
 
 </html>

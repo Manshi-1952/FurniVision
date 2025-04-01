@@ -523,3 +523,368 @@ nav {
     font-size: 1.8rem;
   }
 }
+
+#portfolio-main{
+  width: 100%;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.grid-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.grid-item {
+  flex: 2;
+  text-align: center;
+}
+.middle-grid {
+  flex: 1;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+}
+.grid-item img {
+  width: 100%; /* Makes sure the image adapts to its container */
+  max-width: 450px; /* Increased size */
+  height: auto;
+}
+.nested-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 2 images in a row */
+  gap: 10px;
+}
+
+.nested-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+
+}
+.nested-item img:hover {
+  transform: scale(1.05);
+}
+
+.middle-grid {
+  flex: 1.2;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+/* 🔹 Text Styles */
+.grid-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.grid-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* 🔹 Button Styles */
+.btn-explore {
+  display: inline-block;
+  margin-top: 15px;
+  background-color: #ff9800;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* 🔹 Button Hover Effect */
+.btn-explore:hover {
+  background-color: #e68900;
+  transform: scale(1.1);
+}
+
+/* 🔹 Responsive for Tablets & Mobiles */
+@media (max-width: 900px) {
+  .grid-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .middle-grid {
+    flex: 1;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .nested-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns instead of 3 */
+  }
+
+  .portfolio-heading {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-heading {
+    font-size: 2.5rem;
+  }
+
+  .grid-text {
+    font-size: 1rem;
+  }
+
+  .nested-grid {
+    grid-template-columns: 1fr; /* Stack images */
+  }
+
+  .btn-explore {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Contact Section */
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 40px;
+}
+
+/* Contact Container */
+.contact-container {
+  display: flex;
+  max-width: 1100px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+/* Left Side: Contact Info */
+.contact-info {
+  flex: 1;
+  padding: 40px;
+}
+
+.contact-info h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.contact-info p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.info-item i {
+  font-size: 1.2rem;
+  color: #ff9800;
+}
+
+.social-icons a {
+  color: #ff9800;
+  margin-right: 10px;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  color: #e68900;
+}
+
+/* Right Side: Contact Form */
+.contact-form {
+  flex: 1.2;
+  padding: 40px;
+}
+
+.contact-form h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #555;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  outline: none;
+  border-color: #ff9800;
+}
+
+/* Submit Button */
+.btn-submit {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff9800;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #e68900;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .contact-container {
+    flex-direction: column;
+    max-width: 90%;
+  }
+
+  .contact-info, .contact-form {
+    flex: 1;
+    width: 100%;
+  }
+
+  .contact-section {
+    height: auto;
+  }
+}
+.footer::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 5px;  /* Adjust thickness */
+  background-color: #ff9800;  /* Yellow-Orange Shade */
+  margin-bottom: 50px;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #212121;
+  color: #eeeeee;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  gap: 30px;
+}
+
+/* Footer Columns */
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+  text-align: left;
+}
+
+.footer-column h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #ff9800;
+}
+
+.footer-column p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* Quick Links */
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #eeeeee;
+  transition: 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #ff9800;
+}
+
+/* Social Icons */
+.social-icons {
+  margin-top: 15px;
+}
+
+.social-icons a {
+  color: #ff9800;
+  font-size: 1.5rem;
+  margin-right: 10px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: #e68900;
+}
+
+/* Google Map */
+.map-container {
+  margin-top: 15px;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  padding-top: 10px;
+  border-top: 1px solid #444;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-column {
+    text-align: center;
+  }
+}
