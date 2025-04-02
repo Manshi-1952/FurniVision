@@ -213,6 +213,7 @@ nav {
     scale: 1;
   }
 }
+
 /*modified*/
 .slider {
   min-height: 710px;
@@ -336,6 +337,11 @@ nav {
   text-align: center;
   font-weight: bold;
   font-size: 3rem;
+}
+
+.why-choose-us{
+  font-size: 3rem;
+  font-weight: bold;
 }
 
 .text {

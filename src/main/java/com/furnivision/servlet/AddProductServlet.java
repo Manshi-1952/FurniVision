@@ -96,7 +96,7 @@ public class AddProductServlet extends HttpServlet {
     }
 
     // ✅ Category validation
-    List<String> validCategories = Arrays.asList("sofas", "beds", "tables", "chairs");
+    List<String> validCategories = Arrays.asList("sofas", "beds", "tables", "chairs","cabinets");
     if (!validCategories.contains(category.toLowerCase())) {
       request.setAttribute("errorMessage", "Invalid category selected!");
       request.getRequestDispatcher("admin.jsp").forward(request, response);

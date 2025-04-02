@@ -81,8 +81,9 @@
       </form>
     </div>
     <div id="user-options">
-      <a href="wishlist.jsp">Wishlist</a>
-      <a href="cart.jsp">Cart</a>
+      <a href="admin.jsp">Admin</a>
+      <a href="manageUsers.jsp">admin-user</a>
+      <a href="Contracts-todo.jsp">Contracts</a>
     </div>
   </nav>
 </header>

@@ -11,7 +11,7 @@
 }
 
 body {
-  background-color: #dfd5c2;
+  background-color: #f5f5f5;
 }
 
 ::-webkit-scrollbar {
@@ -181,91 +181,216 @@ nav {
   background-color: #218838;
 }
 
-.product-container {
+/* 🔹 Header Styling */
+/* 🔹 Portfolio Header with Smooth Effects */
+.portfolio-header {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 20px;
-}
-
-.product-card {
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  overflow: hidden;
-  margin: 15px;
-  width: 100%;
-  max-width: 400px;
-}
-
-
-.product-image {
-  flex: 1;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
+  background-color: #381e1d;
   align-items: center;
-}
-
-.product-image img {
-  width: 400px;
-  height: auto;
-  max-width: 500px;
-  object-fit: contain;
-}
-
-.product-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 10px;
-}
-
-.price-quantity {
-  display: flex;
   justify-content: space-between;
-  width: 100%;
-  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
 }
 
-.price-quantity p {
-  font-weight: bold;
-  font-size: 16px;
-  margin-right: 10px; /* Adds space between price and input */
+.portfolio-header:hover {
+  transform: scale(1.02);
 }
 
-.add-cart-btn {
+/* 🔹 Left Image Styling with Hover Effect */
+.left-image img {
   width: 100%;
-  margin-top: 10px;
-  padding: 8px;
-  background-color: #dd9527;
+  max-width: 500px;
+  border-radius: 10px;
+  transition: transform 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.left-image img:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* 🔹 Right Text Section with Cool Animation */
+.right-text {
+  max-width: 600px;
+  text-align: left;
+  padding: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* 🔹 Animated Heading */
+.right-text h2 {
+  font-size: 3rem;
   color: white;
-  border: 3px #dd9527;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bolder;
+  background: linear-gradient(90deg, #ff9966, #ff5e62);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: transform 0.3s ease-in-out;
 }
 
-.add-cart-btn:hover {
-  background-color:  #dfd5c2 ;
-  color: #dd9527;
-  border: 3px  solid #dd9527;
-
+.right-text h2:hover {
+  transform: scale(1.1);
 }
 
-.auth-warning {
-  color: red;
-  font-size: 14px;
+/* 🔹 Description Text with Glow Effect */
+.right-text p {
+  font-size: 18px;
+  color: #ddd;
+  line-height: 1.6;
+  text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.2);
+  transition: color 0.3s ease-in-out;
+}
+
+.right-text p:hover {
+  color: #ffcccb;
+}
+
+/* 🔹 Cool Button */
+.right-text .cta-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 24px;
+  font-size: 18px;
   font-weight: bold;
-  margin-top: 10px;
+  color: white;
+  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
 }
 
-.auth-warning a {
-  color: blue;
-  text-decoration: underline;
+.right-text .cta-button:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0px 10px 20px rgba(255, 75, 43, 0.4);
 }
+
+/* 🔹 Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🔹 Responsive Design */
+@media (max-width: 992px) {
+  .portfolio-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .right-text {
+    text-align: center;
+    padding: 20px 10px;
+  }
+
+  .right-text h2 {
+    font-size: 2.5rem;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .right-text h2 {
+    font-size: 2rem;
+  }
+}
+
+/* 🔹 Gallery Grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* 🔹 Gallery Item */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* 🔹 Image Styling */
+.gallery-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.4s ease-in-out, filter 0.4s ease-in-out;
+  border-radius: 12px;
+}
+
+/* 🔹 Zoom & Blur Effect on Hover */
+.gallery-item:hover img {
+  transform: scale(1.1);
+  filter: brightness(70%);
+}
+
+/* 🔹 Overlay (Text Appears on Hover) */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 12px;
+  font-size: 18px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* 🔹 Smooth Text Fade-in Effect */
+.gallery-item:hover .overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 🔹 Responsive Design */
+@media (max-width: 992px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
 .footer::before {
   content: "";
   display: block;

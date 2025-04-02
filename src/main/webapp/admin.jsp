@@ -168,6 +168,7 @@
         <div id="user-options">
             <a href="admin.jsp">Admin</a>
             <a href="manageUsers.jsp">admin-user</a>
+            <a href="Contracts-todo.jsp">Contracts</a>
         </div>
     </nav>
 </header>

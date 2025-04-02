@@ -11,7 +11,7 @@
 }
 
 body {
-  background-color: #dfd5c2;
+  background-color: #f5f5f5;
 }
 
 ::-webkit-scrollbar {
@@ -181,6 +181,52 @@ nav {
   background-color: #218838;
 }
 
+.tables-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;  /* Full viewport width */
+  height: 100vh; /* Adjust height as needed */
+  background-color: #ffffff;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Full width */
+
+}
+.image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image-container img {
+  width: 100%; /* Adjust as needed */
+  max-width: 600px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.text-container {
+  flex: 1;
+  max-width: 500px;
+}
+
+.text-container h2 {
+  font-size: 3rem;
+  color: #333;
+}
+
+.text-container p {
+  font-size: 16px;
+  color: #666;
+}
+
 .product-container {
   display: flex;
   flex-wrap: wrap;
@@ -239,9 +285,9 @@ nav {
   width: 100%;
   margin-top: 10px;
   padding: 8px;
-  background-color: #dd9527;
+  background-color: black;
   color: white;
-  border: 3px #dd9527;
+  border: 3px black;
   border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
@@ -250,9 +296,8 @@ nav {
 
 .add-cart-btn:hover {
   background-color:  #dfd5c2 ;
-  color: #dd9527;
-  border: 3px  solid #dd9527;
-
+  color: black;
+  border: 3px  solid black;
 }
 
 .auth-warning {
@@ -266,6 +311,7 @@ nav {
   color: blue;
   text-decoration: underline;
 }
+
 .footer::before {
   content: "";
   display: block;

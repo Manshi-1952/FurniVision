@@ -20,7 +20,8 @@
 
 </head>
 <body>
-<h2>Your Shopping Cart</h2>
+
+<h2 class="h2">Your Shopping Cart</h2>
 
 <table>
     <tr>
@@ -77,12 +78,13 @@
     boolean isCartEmpty = (totalCartPrice == 0);
 %>
 
-<form id="payment-form">
-    <button type="button" class="payment-btn" id="pay-button" <% if (isCartEmpty) { %> disabled <% } %>>Proceed to Payment</button>
-</form>
+<%--<form id="payment-form">--%>
+<%--    <button type="button" class="payment-btn" id="pay-button" <% if (isCartEmpty) { %> disabled <% } %>>Proceed to Payment</button>--%>
+<%--</form>--%>
 
 <br>
 <a href="index.jsp">Continue Shopping</a>
+<script src="./Javascript/app.js"></script>
 
 <script>
     $(document).ready(function () {
@@ -122,33 +124,20 @@
         }
     });
 
-    document.getElementById("pay-button").addEventListener("click", function () {
-        fetch("http://localhost:8080/CashfreePaymentServlet", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: new URLSearchParams({
-                amount: "500",
-                currency: "INR"
-            })
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log("Payment Response:", data);
-                if (data.payment_session_id) {
-                    cashfree.checkout({
-                        paymentSessionId: data.payment_session_id,
-                        returnUrl: "https://sandbox.cashfree.com/pg/success",
-                    });
-                } else {
-                    alert("Payment initiation failed: " + data.error);
-                }
-            })
-            .catch(error => console.error("Payment initiation error", error));
-    });
+    function checkLogin(link) {
+        let isLoggedIn = <%= session.getAttribute("username") != null %>; // Checks if the user is logged in
+
+        if (!isLoggedIn) {
+            alert("Please log in first!");
+            window.location.href = "login.jsp"; // Redirect to login page
+            return false; // Prevent navigation
+        }
+        return true; // Allow navigation if logged in
+    }
+
 
 </script>
+
 <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
 
 </body>

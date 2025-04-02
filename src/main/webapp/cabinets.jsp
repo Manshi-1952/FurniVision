@@ -1,4 +1,11 @@
-
+<%--
+  Created by IntelliJ IDEA.
+  User: Manshi Gohil
+  Date: 02-04-2025
+  Time: 19:44
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.sql.*, jakarta.servlet.http.*, jakarta.servlet.*" %>
 <%@ page import="com.furnivision.util.DatabaseConnection" %>
@@ -8,40 +15,39 @@
   Integer userId = (sessionObj != null && sessionObj.getAttribute("user_id") != null)
       ? (Integer) sessionObj.getAttribute("user_id") : null;
 
-  String username = (sessionObj != null) ? (String) sessionObj.getAttribute("username") : null;
-
 
   Connection connection = null;
   PreparedStatement preparedStatement = null;
   ResultSet resultSet = null;
 %>
-
 <html>
 <head>
-  <title>Furniture Store - Beds</title>
-  <link rel="stylesheet" href="./CSS/beds.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+  <title>Furniture Store - Cabinets</title>
+  <link rel="stylesheet" href="./CSS/tables.css">
 </head>
 <body>
 
 <header>
   <nav>
+    <!-- Hamburger Menu -->
     <div id="menu">
       <button id="hamburger">&#9776;</button>
       <ul id="category-list" style="display: none;">
-        <li><a href="sofas.jsp">Sofas</a></li>
-        <li><a href="beds.jsp">Beds</a></li>
+        <li><a href="sofas.jsp" onclick="return checkLogin(this)">Sofas</a></li>
+        <li><a href="beds.jsp" onclick="return checkLogin(this)">Beds</a></li>
         <li><a href="chairs.jsp">Chairs</a></li>
         <li><a href="tables.jsp">Tables</a></li>
         <li><a href="cabinets.jsp">Cabinets</a></li>
       </ul>
     </div>
 
+    <!-- Logo -->
+
     <div id="logo">
       <h1><a href="index.jsp" style="text-decoration: none;color: black">FurniVision</a></h1>
     </div>
 
+    <!-- Search Bar -->
     <div id="search-bar">
       <form id="searchForm">
         <input type="text" id="searchInput" name="query" placeholder="Search furniture...">
@@ -49,20 +55,26 @@
       </form>
     </div>
 
+    <!-- User Icons -->
     <div id="user-options">
+      <!-- User Profile Dropdown -->
       <div id="profile-dropdown" class="dropdown">
         <button class="dropbtn">Profile</button>
         <div class="dropdown-content">
           <%
+            String username = (String) session.getAttribute("username");
             if (username != null) {
           %>
           <p style="padding: 10px;font-weight: bold">Welcome, <%= username %>!</p>
+          <!-- Optionally add a logout link here -->
           <a href="logout.jsp">Logout</a>
           <%
           } else {
           %>
-          <a href="login.jsp"><button class="signin-btn">Sign In</button></a>
-          <% } %>
+          <a href="login.jsp" class="signin-btn">Sign In</a>
+          <%
+            }
+          %>
         </div>
       </div>
       <%
@@ -83,20 +95,30 @@
 </header>
 
 <main>
-  <section class="beds-section">
-    <img src="./Assets/upscalemedia-transformed.png" style="width: 100%;height: 90%;">
-    <h1 style="font-size: 2rem;font-weight: bolder;text-align: center;margin: 20px">PRODUCTS</h1>
-    <hr style="border: 1px solid #dd9527; width: 90%; margin: auto">
+  <section class="cabinet-section" >
+    <div class="container">
+      <!-- Left: Image -->
+      <div class="image-container">
+        <img src="./Assets/cabine.jpeg" alt="Dining Table">
+      </div>
 
+      <!-- Right: Text -->
+      <div class="text-container">
+        <h2>Elegant & Functional Cabinets for Every Space</h2>
+        <p>Maximize your storage with stylish, durable cabinets designed for modern living. Whether for your kitchen, bedroom, or office, find the perfect fit for your space.</p>
+      </div>
+    </div>
   </section>
-
+  <hr style="border: 2px solid black; width: 95%; margin: auto">
+  <h1 style="font-size: 2rem;font-weight: bolder;text-align: center;margin: 20px">PRODUCTS</h1>
+  <hr style="border: 2px solid black; width: 95%; margin: auto">
   <div class="product-container">
     <%
       try {
         connection = DatabaseConnection.getConnection();
         String sql = "SELECT * FROM products WHERE category = ?";
         preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setString(1, "Beds");
+        preparedStatement.setString(1, "Cabinets");
         resultSet = preparedStatement.executeQuery();
 
         while (resultSet.next()) {
@@ -202,47 +224,64 @@
   </div>
 </footer>
 
-<script src="./Javascript/app-2.js"></script>
-<script src="./Javascript/app.js"></script>
-
 <script>
-    document.querySelectorAll('img[src*="uploads/1742076605158_bed5.png"]').forEach(img => {
-        img.style.display = "block";
-        img.style.visibility = "visible";
-    });
+  document.getElementById("searchForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Stop default form submission
 
-    document.getElementById("searchForm").addEventListener("submit", function(event) {
-      event.preventDefault(); // Stop default form submission
+    let query = document.getElementById("searchInput").value.toLowerCase(); // Convert input to lowercase
 
-      let query = document.getElementById("searchInput").value.toLowerCase(); // Convert input to lowercase
+    // Mapping search terms to pages
+    let pages = {
+      "bed": "beds.jsp",
+      "beds": "beds.jsp",
+      "chair": "chairs.jsp",
+      "chairs": "chairs.jsp",
+      "table": "tables.jsp",
+      "tables": "tables.jsp",
+      "cabinet": "cabinets.jsp",
+      "cabinets": "cabinets.jsp",
+      "sofa": "sofa.jsp",
+      "sofas": "sofa.jsp"
+    };
 
-      // Mapping search terms to pages
-      let pages = {
-        "bed": "beds.jsp",
-        "beds": "beds.jsp",
-        "chair": "chairs.jsp",
-        "chairs": "chairs.jsp",
-        "table": "tables.jsp",
-        "tables": "tables.jsp",
-        "cabinet": "cabinets.jsp",
-        "cabinets": "cabinets.jsp",
-        "sofa": "sofa.jsp",
-        "sofas": "sofa.jsp"
-      };
-
-      // Redirect if search term matches
-      for (let key in pages) {
-        if (query.includes(key)) {
-          window.location.href = pages[key];
-          return;
-        }
+    // Redirect if search term matches
+    for (let key in pages) {
+      if (query.includes(key)) {
+        window.location.href = pages[key];
+        return;
       }
+    }
 
-      // If no match, show alert or redirect to a "Not Found" page
-      alert("No matching furniture found.");
+    // If no match, show alert or redirect to a "Not Found" page
+    alert("No matching furniture found.");
+  });
+
+  //deopdown
+  document.addEventListener("DOMContentLoaded", function () {
+    let dropdownBtn = document.querySelector(".dropbtn");
+    let dropdownContent = document.querySelector(".dropdown-content");
+
+    dropdownBtn.addEventListener("click", function (event) {
+      event.stopPropagation();
+      dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
     });
 
+    document.addEventListener("click", function () {
+      dropdownContent.style.display = "none";
+    });
+  });
+
+  //hamburger
+  document.getElementById("hamburger").addEventListener("click", function() {
+    let menu = document.getElementById("category-list");
+    if (menu.style.display === "none" || menu.style.display === "") {
+      menu.style.display = "block";
+    } else {
+      menu.style.display = "none";
+    }
+  });
 
 </script>
+
 </body>
 </html>

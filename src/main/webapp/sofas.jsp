@@ -30,12 +30,11 @@
     <div id="menu">
       <button id="hamburger">&#9776;</button>
       <ul id="category-list" style="display: none;">
-        <li><a href="sofas.jsp">Sofas</a></li>
+        <li><a href="sofas.jsp" >Sofas</a></li>
         <li><a href="beds.jsp">Beds</a></li>
         <li><a href="chairs.jsp">Chairs</a></li>
         <li><a href="tables.jsp">Tables</a></li>
         <li><a href="cabinets.jsp">Cabinets</a></li>
-        <li><a href="outdoor.jsp">Outdoor Furniture</a></li>
       </ul>
     </div>
 
@@ -44,9 +43,9 @@
     </div>
 
     <div id="search-bar">
-      <form action="search" method="GET">
-        <input type="text" name="query" placeholder="Search furniture...">
-        <button type="submit">Search</button>
+      <form id="searchForm">
+        <input type="text" id="searchInput" name="query" placeholder="Search furniture...">
+        <button type="submit" >Search</button>
       </form>
     </div>
 
@@ -75,7 +74,8 @@
       <a href="manageUsers.jsp">Manage Users</a>
       <% } else { %>
       <!-- Show Customer Options -->
-      <a href="wishlist.jsp">Wishlist</a>
+      <a href="portfolio.jsp">Portfolio</a>
+      <a href="contract.jsp">Custom Furniture</a>
       <a href="cart.jsp">Cart</a>
       <% } %>
     </div>
@@ -159,8 +159,87 @@
   </div>
 
 </main>
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Column 1: Company Info -->
+    <div class="footer-column">
+      <h2>FurniVision</h2>
+      <p>Crafting modern & elegant furniture tailored to your needs. Quality, design, and durability in every piece.</p>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+
+    <!-- Column 2: Quick Links -->
+    <div class="footer-column">
+      <h2>Quick Links</h2>
+      <ul>
+        <li><a href="index.jsp">Home</a></li>
+        <li><a href="portfolio.jsp">Portfolio</a></li>
+        <li><a href="contract.jsp">Custom Furniture</a></li>
+        <li><a href="cart.jsp">Cart</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Contact & Map -->
+    <div class="footer-column">
+      <h2>Contact Us</h2>
+      <p><i class="fas fa-map-marker-alt"></i> Sevasi, Vadodara</p>
+      <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+      <p><i class="fas fa-envelope"></i> support@furnivision.com</p>
+
+      <!-- Embedded Google Map -->
+      <div class="map-container">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.5175440187026!2d73.12073641500397!3d22.30866498531654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc90205f1486b%3A0x29c3651db110c9c!2sSevasi%2C%20Vadodara%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1698947617732"
+            width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 FurniVision. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("searchForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Stop default form submission
+
+  let query = document.getElementById("searchInput").value.toLowerCase(); // Convert input to lowercase
+
+  // Mapping search terms to pages
+  let pages = {
+  "bed": "beds.jsp",
+  "beds": "beds.jsp",
+  "chair": "chairs.jsp",
+  "chairs": "chairs.jsp",
+  "table": "tables.jsp",
+  "tables": "tables.jsp",
+  "cabinet": "cabinets.jsp",
+  "cabinets": "cabinets.jsp",
+  "sofa": "sofas.jsp",
+  "sofas": "sofas.jsp"
+  };
+
+  // Redirect if search term matches
+  for (let key in pages) {
+  if (query.includes(key)) {
+  window.location.href = pages[key];
+  return;
+  }
+  }
+
+  // If no match, show alert or redirect to a "Not Found" page
+  alert("No matching furniture found.");
+  });
 
 
+
+</script>
 <script src="./Javascript/app-2.js"></script>
 <script src="./Javascript/app.js"></script>
 

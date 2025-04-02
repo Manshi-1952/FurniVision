@@ -13,7 +13,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./CSS/style.css">
-  <link rel="icon" type="image/png" href="./Assets/s1.jpg">
+  <link rel="icon" type="image/png" href="./Assets/Furniture%20icons.jpeg">
   <!-- AOS Library -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -31,23 +31,23 @@
       <ul id="category-list" style="display: none;">
         <li><a href="sofas.jsp" onclick="return checkLogin(this)">Sofas</a></li>
         <li><a href="beds.jsp" onclick="return checkLogin(this)">Beds</a></li>
-        <li><a href="chairs.jsp">Chairs</a></li>
-        <li><a href="#">Tables</a></li>
-        <li><a href="#">Cabinets</a></li>
-        <li><a href="#">Outdoor Furniture</a></li>
+        <li><a href="chairs.jsp" onclick="return checkLogin(this)">Chairs</a></li>
+        <li><a href="tables.jsp" onclick="return checkLogin(this)">Tables</a></li>
+        <li><a href="cabinets.jsp" onclick="return checkLogin(this)">Cabinets</a></li>
       </ul>
     </div>
 
     <!-- Logo -->
+
     <div id="logo">
-      <h1>FurniVisions</h1>
+      <h1><a href="index.jsp" style="text-decoration: none;color: black">FurniVision</a></h1>
     </div>
 
     <!-- Search Bar -->
     <div id="search-bar">
-      <form action="search" method="GET">
-        <input type="text" name="query" placeholder="Search furniture...">
-        <button type="submit">Search</button>
+      <form id="searchForm">
+        <input type="text" id="searchInput" name="query" placeholder="Search furniture...">
+        <button type="submit" onclick="return checkLogin(this)">Search</button>
       </form>
     </div>
 
@@ -82,8 +82,8 @@
       <a href="manageUsers.jsp">Manage Users</a>
       <% } else { %>
       <!-- Show Customer Options -->
-      <a href="#">Portfolio</a>
-      <a href="#">Contact page</a>
+      <a href="portfolio.jsp">Portfolio</a>
+      <a href="contract.jsp">Custom Furniture</a>
       <a href="cart.jsp">Cart</a>
       <% } %>
     </div>
@@ -217,7 +217,7 @@
   <section class="main1" id="top-categories-main">
     <h2 class="top-categories-title" data-aos="fade-up">Top Categories</h2>
     <div class="categories-container">
-      <a href="sofas.jsp" onclick="return checkLogin(this)">
+      <a href="sofas.jsp">
         <div class="category-card" data-aos="flip-left">
           <img src="./Assets/sofa.jpeg" alt="Sofas">
           <h1>Sofa</h1>
@@ -263,7 +263,7 @@
       <div class="grid-item middle-grid">
         <h2>Our Past Projects</h2>
         <p>We have successfully designed and built custom furniture for modern homes, apartments, and offices. Our team ensures top-notch quality with exquisite craftsmanship.</p>
-        <a href="portfolio.html" class="btn-explore">Explore Our Work</a>
+        <a href="portfolio.jsp" class="btn-explore">Explore Our Work</a>
       </div>
 
     </div>
@@ -305,7 +305,7 @@
       <!-- Right Side: Contact Form -->
       <div class="contact-form">
         <h2>Send Us a Message</h2>
-        <form>
+        <form action="https://formsubmit.co/manshi.gohil832@gmail.com" method="POST">
           <div class="input-group">
             <input type="text" placeholder="Your Name" required>
           </div>
@@ -317,6 +317,7 @@
           </div>
           <button type="submit" class="btn-submit">Send Message</button>
         </form>
+
       </div>
 
     </div>
@@ -340,10 +341,10 @@
       <div class="footer-column">
         <h2>Quick Links</h2>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.jsp">Home</a></li>
+          <li><a href="portfolio.jsp">Portfolio</a></li>
+          <li><a href="contract.jsp">Custom Furniture</a></li>
+          <li><a href="cart.jsp">Cart</a></li>
         </ul>
       </div>
 
@@ -389,6 +390,38 @@
         }
         return true; // Allow navigation if logged in
     }
+
+    document.getElementById("searchForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Stop default form submission
+
+      let query = document.getElementById("searchInput").value.toLowerCase(); // Convert input to lowercase
+
+      // Mapping search terms to pages
+      let pages = {
+        "bed": "beds.jsp",
+        "beds": "beds.jsp",
+        "chair": "chairs.jsp",
+        "chairs": "chairs.jsp",
+        "table": "tables.jsp",
+        "tables": "tables.jsp",
+        "cabinet": "cabinets.jsp",
+        "cabinets": "cabinets.jsp",
+        "sofa": "sofa.jsp",
+        "sofas": "sofa.jsp"
+      };
+
+      // Redirect if search term matches
+      for (let key in pages) {
+        if (query.includes(key)) {
+          window.location.href = pages[key];
+          return;
+        }
+      }
+
+      // If no match, show alert or redirect to a "Not Found" page
+      alert("No matching furniture found.");
+    });
+
 
 </script>
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
